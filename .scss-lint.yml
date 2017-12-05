@@ -1,0 +1,5 @@
+scss_files: "app/assets/stylesheets/**"
+exclude:
+  - "app/assets/stylesheets/application.scss"
+  - "app/assets/stylesheets/application.css"
+  - "vendor/assets/**"
