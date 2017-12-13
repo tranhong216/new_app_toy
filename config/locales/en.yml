@@ -30,4 +30,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  static_pages:
+    home:
+      title: "Home | Ruby on Rails Tutorial Sample App"
+      heading: "Hello world"
+      content: "This is home page."
+    about:
+      title: "About | Ruby on Rails Tutorial Sample App"
+      heading: "This is help page"
+      content: "<em><a href=%{home}> Ruby on Rails</a></em> is a 
+      <a href=%{book}>book</a> and <a href=%{screencast_series}>
+      screencast series</a> o teach web development with <a href=%{RoR}>
+      Ruby on Rails</a>.This is the sample application for the tutorial."
+    help:
+      title: "Help | Ruby on Rails Tutorial Sample App"
+      heading: "this is about page"
+      content: "Click <a href=%{link}>here</a> to come Help Pages"

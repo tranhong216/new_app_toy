@@ -41,4 +41,3 @@ config/environments/*.local.yml
 /.idea
 /.framgia-ci-reports
 .framgia-ci-result.temp.yml
-/app/assets/stylesheets/application.css
