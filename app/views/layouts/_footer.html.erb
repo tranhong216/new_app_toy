@@ -1,0 +1,14 @@
+<footer class="footer">
+  <small>
+    <%= t(".info",
+      link1: "http://www.railstutorial.org/",
+      link2: "http://www.railstutorial.org/").html_safe %>
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to t(".about"), about_path %></li>
+      <li><%= link_to t(".contact"), contact_path %></li>
+      <li><%= link_to t(".news"), "ruby.com" %></li>
+    </ul>
+  </nav>
+</footer>
