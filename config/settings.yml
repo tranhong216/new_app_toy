@@ -1,0 +1,4 @@
+user_model:
+  name_maximun: 50
+  email_maximun: 255
+  password_minximun: 6
