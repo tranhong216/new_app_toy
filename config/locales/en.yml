@@ -36,6 +36,7 @@ en:
       title: "Home"
       heading: "Hello world"
       content: "This is home page."
+      signup: "Sign Up Now!"
     about:
       title: "About"
       heading: "This is help page"
@@ -47,3 +48,24 @@ en:
       title: "Help"
       heading: "this is about page"
       content: "Click <a href=%{link}>here</a> to come Help Pages"
+    contact:
+      title: "Contact"
+      heading: "Contact"
+      content: "Contact the Ruby on Rails Tutorial about the sample app at the
+      <a href=%{link}> contact page</a>"
+  users:
+    new:
+      tile: "New Member"
+      heading: "Sign Up Member"
+      content: "Content Update Later"
+  layouts:
+    header:
+      home: "Home"
+      help: "Help"
+      login: "Login"
+    footer:
+      about: "About"
+      contact: "Contact"
+      info: "The <a href=%{link1}>Ruby on Rails Tutorial</a> by
+      <a href=%{link2}> Michael Hartl</a> "
+      news: "News"

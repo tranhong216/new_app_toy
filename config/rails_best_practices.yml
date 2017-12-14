@@ -23,11 +23,9 @@ ProtectMassAssignmentCheck: { }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { except_methods: [
-  "StaticPagesController#home",
-  "StaticPagesController#about",
-  "StaticPagesController#help"
-  ] }
+RemoveUnusedMethodsInControllersCheck: { 
+  ignored_files: ["static_pages_controller.rb","users_controller.rb"],
+  except_methods: [] }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
