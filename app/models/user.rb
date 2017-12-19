@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-
   enum sex: %i(male female maybe)
+  ATTRIBUTE_PARAMS = %i(name email password password_confirmation sex).freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_save :email_downcase

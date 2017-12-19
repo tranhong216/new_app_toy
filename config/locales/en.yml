@@ -31,6 +31,9 @@
 
 en:
   base_title: "Ruby on Rails Tutorial Sample App"
+  controllers:
+    user:
+      m_success: "Welcome to the Sample App!"
   static_pages:
     home:
       title: "Home"
@@ -40,7 +43,7 @@ en:
     about:
       title: "About"
       heading: "This is help page"
-      content: "<em><a href=%{home}> Ruby on Rails</a></em> is a 
+      content: "<em><a href=%{home}> Ruby on Rails</a></em> is a
       <a href=%{book}>book</a> and <a href=%{screencast_series}>
       screencast series</a> o teach web development with <a href=%{RoR}>
       Ruby on Rails</a>.This is the sample application for the tutorial."
@@ -55,9 +58,17 @@ en:
       <a href=%{link}> contact page</a>"
   users:
     new:
-      tile: "New Member"
+      title: "New Member"
       heading: "Sign Up Member"
       content: "Content Update Later"
+      t_create: "Create my account"
+      btn_confirm: "Confirmation"
+      sex:
+        male: "Male"
+        female: "Female"
+        maybe: "Mabe"
+    show:
+      title: "Show Users"
   layouts:
     header:
       home: "Home"
@@ -69,3 +80,7 @@ en:
       info: "The <a href=%{link1}>Ruby on Rails Tutorial</a> by
       <a href=%{link2}> Michael Hartl</a> "
       news: "News"
+  shared:
+    error_messages:
+      m_count_er: "The form contains %{count}"
+      err: "error."
