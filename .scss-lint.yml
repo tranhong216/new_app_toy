@@ -3,3 +3,9 @@ exclude:
   - "app/assets/stylesheets/application.scss"
   - "app/assets/stylesheets/application.css"
   - "vendor/assets/**"
+linters:
+  SelectorFormat:
+    ignored_names: ["debug_dump", "field_with_errors", "gravatar_edit"]
+
+  PlaceholderInExtend:
+    enabled: false
