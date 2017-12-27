@@ -5,7 +5,9 @@ exclude:
   - "vendor/assets/**"
 linters:
   SelectorFormat:
-    ignored_names: ["debug_dump", "field_with_errors", "gravatar_edit"]
+    ignored_names: [
+      "debug_dump", "field_with_errors", "gravatar_edit", "session_remember_me"
+    ]
 
   PlaceholderInExtend:
     enabled: false

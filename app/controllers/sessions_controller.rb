@@ -3,18 +3,27 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by email: (params_session :email)
-
     if user && user.authenticate(params_session(:password))
-      log_in user
-      redirect_to user
+      success
     else
-      flash[:danger] = t "controllers.session.m_unsuccess"
-      render :new
+      unsuccess
     end
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
+  end
+
+  def success
+    user = User.find_by email: params_session(:email)
+    log_in user
+    params_session(:remember_me) == "1" ? remember(user) : forget(user)
+    redirect_to user
+  end
+
+  def unsuccess
+    flash[:danger] = t "controllers.session.m_unsuccess"
+    render :new
   end
 end
