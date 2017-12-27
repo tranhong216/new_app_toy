@@ -34,6 +34,8 @@ en:
   controllers:
     user:
       m_success: "Welcome to the Sample App!"
+    session:
+      m_unsuccess: "Invalid email/password combination"
   static_pages:
     home:
       title: "Home"
@@ -74,6 +76,11 @@ en:
       home: "Home"
       help: "Help"
       login: "Login"
+      profile: "Profile"
+      settings: "Settings"
+      account: "Account"
+      logout: "Log out"
+      users: "Users"
     footer:
       about: "About"
       contact: "Contact"
@@ -84,3 +91,8 @@ en:
     error_messages:
       m_count_er: "The form contains %{count}"
       err: "error."
+  sessions:
+    new:
+      login: "Log in"
+      m_newuser: "New user? %{link}"
+      signup: "Sign up now!"

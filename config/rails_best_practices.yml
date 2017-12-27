@@ -23,10 +23,13 @@ ProtectMassAssignmentCheck: { }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { 
-  ignored_files: ["static_pages_controller.rb","users_controller.rb"],
+RemoveUnusedMethodsInControllersCheck: {
+  ignored_files: ["static_pages_controller.rb","users_controller.rb",
+    "sessions_controller.rb"],
   except_methods: [] }
-RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
+RemoveUnusedMethodsInHelpersCheck: {
+  ignored_files: ["sessions_helper.rb"],
+  except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
 ReplaceInstanceVariableWithLocalVariableCheck: { }
