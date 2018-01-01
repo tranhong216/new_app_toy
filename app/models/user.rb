@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   enum sex: %i(male female maybe)
-  ATTRIBUTE_PARAMS = %i(name email password password_confirmation sex).freeze
+  ATTRIBUTE_PARAMS = %i(name email password password_confirmation
+                        sex date_of_birth).freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_save :email_downcase
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
     length: {minimum: Settings.user_model.password_minximun}, allow_nil: true
   validates :sex, inclusion: {in: :sex}, allow_nil: true
-
+  validates :date_of_birth, presence: true
   has_secure_password
 
   class << self
@@ -45,6 +46,10 @@ class User < ApplicationRecord
 
   def forget
     update_attributes remember_digest: nil
+  end
+
+  def current_user? current_user
+    self == current_user
   end
 
   private
