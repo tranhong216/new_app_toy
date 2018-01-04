@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by email: (params_session :email)
     if user && user.authenticate(params_session(:password))
-      success
+      check_active_user user
     else
-      unsuccess
+      flash[:danger] = t "controllers.session.m_unsuccess"
+      render :new
     end
   end
 
@@ -15,15 +16,23 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def success
-    user = User.find_by email: params_session(:email)
-    log_in user
-    params_session(:remember_me) == "1" ? remember(user) : forget(user)
-    redirect_back_or user
+  def check_active_user user
+    if user.activated?
+      log_in user
+      check_remember user
+      redirect_back_or user
+    else
+      do_not_activated
+    end
   end
 
-  def unsuccess
-    flash[:danger] = t "controllers.session.m_unsuccess"
-    render :new
+  def do_not_activated
+    message = t "controllers.session.m_unactive"
+    flash[:warning] = message
+    redirect_to root_url
+  end
+
+  def check_remember user
+    params_session(:remember_me) == "1" ? remember(user) : forget(user)
   end
 end

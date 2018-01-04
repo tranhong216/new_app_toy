@@ -33,14 +33,23 @@ en:
   base_title: "Ruby on Rails Tutorial Sample App"
   controllers:
     user:
-      m_success: "Welcome to the Sample App!"
       m_suc_update: "Profile updates"
       m_suc_delete: "User deleted"
       m_dan_delele: "Can't delete user. Please chose correct user"
       m_req_login: "Please log in."
       m_not_found: "Don't find user. Please login again or signup."
+      m_email_active: "Please check your email to activate your account."
+    account_activations:
+      m_success: "Welcome to the Sample App!"
+      m_dan_active: "Invalid activation link"
     session:
       m_unsuccess: "Invalid email/password combination"
+      m_unactive: "Account not activated"
+      m_checklink: "Check your email for activation link."
+  mailer:
+    user:
+      account_activation:
+        subject: "Activation Email Your Account In New App Toy"
   static_pages:
     home:
       title: "Home"
@@ -114,3 +123,10 @@ en:
       m_newuser: "New user? %{link}"
       signup: "Sign up now!"
       remember_me: "Remember me on this computer"
+  user_mailer:
+    account_activation:
+      heading: "Last step to registion account"
+      greating: "Hi, "
+      welcome: "Welcome to the Sample App! Click on the link below to activate
+      your account:"
+      activate: "Activate Now"
