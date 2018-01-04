@@ -34,6 +34,11 @@ en:
   controllers:
     user:
       m_success: "Welcome to the Sample App!"
+      m_suc_update: "Profile updates"
+      m_suc_delete: "User deleted"
+      m_dan_delele: "Can't delete user. Please chose correct user"
+      m_req_login: "Please log in."
+      m_not_found: "Don't find user. Please login again or signup."
     session:
       m_unsuccess: "Invalid email/password combination"
   static_pages:
@@ -64,13 +69,25 @@ en:
       heading: "Sign Up Member"
       content: "Content Update Later"
       t_create: "Create my account"
-      btn_confirm: "Confirmation"
+      btn_submit: "Submit"
       sex:
         male: "Male"
         female: "Female"
         maybe: "Mabe"
     show:
       title: "Show Users"
+    index:
+      title: "Show All Users"
+      heading: "All Users"
+    user:
+      m_confirm: "You sure?"
+      delete: "Delete"
+    edit:
+      title: "Edit Page"
+      heading: "Edit User"
+      btn_save: "Save changes"
+    form:
+      btn_confirm: "Confirmation"
   layouts:
     header:
       home: "Home"

@@ -1,0 +1,23 @@
+<%= form_for user do |f| %>
+  <%= render "shared/error_messages", users: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :sex %>
+  <%= f.select :sex, sex_choice %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :date_of_birth %>
+  <%= f.date_select :date_of_birth, start_year: 1990 %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, t(".btn_confirm") %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
