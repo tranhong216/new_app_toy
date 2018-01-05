@@ -11,3 +11,5 @@ exclude_paths:
 "app/helpers":
   FeatureEnvy:
     enabled: false
+Attribute:
+  enabled: false
