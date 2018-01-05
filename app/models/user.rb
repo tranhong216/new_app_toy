@@ -8,7 +8,7 @@ class User < ApplicationRecord
   before_save :email_downcase
 
   attr_reader :remember_token
-  attr_accessor :activation_token
+  attr_accessor :activation_token, :reset_token
 
   validates :name, presence: true,
     length: {maximum: Settings.user_model.name_maximun}
@@ -60,8 +60,18 @@ class User < ApplicationRecord
     update_attributes activated: true, activated_at: Time.zone.now
   end
 
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
+  def send_code_email attribute
+    UserMailer.send(attribute.to_s, self).deliver_now
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attributes reset_digest: User.digest(reset_token),
+      reset_sent_at: Time.zone.now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private
