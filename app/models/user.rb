@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   enum sex: %i(male female maybe)
   ATTRIBUTE_PARAMS = %i(name email password password_confirmation
                         sex date_of_birth).freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  ATTRIBUTE_PARAMS_PASSWORD = %i(password password_confirmation)
 
   before_create :create_activation_digest
   before_save :email_downcase
@@ -71,7 +74,11 @@ class User < ApplicationRecord
   end
 
   def password_reset_expired?
-    reset_sent_at < 2.hours.ago
+    reset_sent_at < Settings.user.time_expired.hours.ago
+  end
+
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private

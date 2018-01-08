@@ -12,7 +12,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
+  end
 
   def create
     @user = User.new user_params
@@ -51,12 +54,7 @@ class UsersController < ApplicationController
     params.require(:user).permit User::ATTRIBUTE_PARAMS
   end
 
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "controllers.user.m_req_login"
-    redirect_to login_url
-  end
+
 
   def correct_user
     redirect_to root_url unless @user.current_user? current_user
