@@ -46,10 +46,19 @@ en:
       m_unsuccess: "Invalid email/password combination"
       m_unactive: "Account not activated"
       m_checklink: "Check your email for activation link."
+    password_reset:
+      email_expired: "Password reset has expired."
+      success: "Password has been reset."
+      do_not_blank: "can't be empty"
+      email_not_found : "Email address not found"
+      sented_email : "Email sent with password reset instructions"
+      user_not_found: "Not found user!"
   mailer:
     user:
       account_activation:
         subject: "Activation Email Your Account In New App Toy"
+      password_reset:
+        subject: "Password Reset Email Your Account In New App Toy"
   static_pages:
     home:
       title: "Home"
@@ -123,6 +132,8 @@ en:
       m_newuser: "New user? %{link}"
       signup: "Sign up now!"
       remember_me: "Remember me on this computer"
+      m_forgot: "You forgot password ? %{link}"
+      forgot: "Get Your Password Now!"
   user_mailer:
     account_activation:
       heading: "Last step to registion account"
@@ -130,3 +141,19 @@ en:
       welcome: "Welcome to the Sample App! Click on the link below to activate
       your account:"
       activate: "Activate Now"
+    password_reset:
+      heading: "Password reset"
+      message: "To reset your password click the link below:"
+      rs_password: "Reset password"
+      timelink: "This link will expire in two hours."
+      warning: "If you did not request your password to be reset, please ignore
+        this email and your password will stay as it is."
+  password_resets:
+    new:
+      title: "Reset Password"
+      btn_submit: "Submit"
+    edit:
+      title: "Reset password"
+      heading: "Reset password"
+      btn_confirm: "Confirmation"
+      btn_update: "Update password"

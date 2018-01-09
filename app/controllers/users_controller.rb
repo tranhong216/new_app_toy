@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      @user.send_activation_email
+      @user.send_code_email :account_activation
       flash[:info] = t "controllers.user.m_email_active"
       redirect_to root_url
     else

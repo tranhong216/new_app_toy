@@ -24,9 +24,9 @@ RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck: {
-  ignored_files: ["static_pages_controller.rb","users_controller.rb",
-    "sessions_controller.rb","account_activations_controller.rb"],
-  except_methods: [] }
+  ignored_files: ["static_pages_controller.rb"],
+  except_methods: ["PasswordResetsController#create",
+    "SessionsController#create","UsersController#create"] }
 RemoveUnusedMethodsInHelpersCheck: {
   ignored_files: ["sessions_helper.rb"],
   except_methods: [] }
