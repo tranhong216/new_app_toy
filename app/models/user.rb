@@ -5,6 +5,8 @@ class User < ApplicationRecord
   ATTRIBUTE_PARAMS_PASSWORD = %i(password password_confirmation).freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  has_many :microposts, dependent: :destroy
+
   before_create :create_activation_digest
   before_save :email_downcase
 
@@ -73,6 +75,10 @@ class User < ApplicationRecord
 
   def password_reset_expired?
     reset_sent_at < Settings.user_model.time_expired.hours.ago
+  end
+
+  def feed
+    microposts.order_time
   end
 
   private

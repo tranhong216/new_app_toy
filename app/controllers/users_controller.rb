@@ -12,13 +12,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show; end
+  def show
+    @microposts = @user.microposts.order_time.paginate page: params[:page]
+  end
 
   def create
     @user = User.new user_params
     if @user.save
       @user.send_code_email :account_activation
-      flash[:info] = t "controllers.user.m_email_active"
+      flash[:info] = t "controllers.user.email_active"
       redirect_to root_url
     else
       render :new
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t "controllers.user.m_suc_update"
+      flash[:success] = t "controllers.user.updated"
       redirect_to @user
     else
       render :edit
@@ -38,9 +40,9 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = t "controllers.user.m_suc_delete"
+      flash[:success] = t "controllers.user.deleted"
     else
-      flash[:danger] = t "controllers.user.m_dan_delele"
+      flash[:danger] = t "controllers.user.delele_fail"
     end
     redirect_to users_url
   end
@@ -49,13 +51,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit User::ATTRIBUTE_PARAMS
-  end
-
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "controllers.user.m_req_login"
-    redirect_to login_url
   end
 
   def correct_user
@@ -70,7 +65,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
 
     return if @user
-    flash[:danger] = t "controllers.user.m_not_found"
+    flash[:danger] = t "controllers.user.not_found_user"
     redirect_to login_url
   end
 end

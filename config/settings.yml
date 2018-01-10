@@ -3,3 +3,6 @@ user_model:
   email_maximun: 255
   password_minximun: 6
   time_expired: 2
+micropost_model:
+  content_maximun: 140
+  picture_maximun: 5

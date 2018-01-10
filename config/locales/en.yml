@@ -31,14 +31,17 @@
 
 en:
   base_title: "Ruby on Rails Tutorial Sample App"
+  model:
+    micropost:
+      picture_size: "should be less than 5MB"
   controllers:
     user:
-      m_suc_update: "Profile updates"
-      m_suc_delete: "User deleted"
-      m_dan_delele: "Can't delete user. Please chose correct user"
-      m_req_login: "Please log in."
-      m_not_found: "Don't find user. Please login again or signup."
-      m_email_active: "Please check your email to activate your account."
+      updated: "Profile updates"
+      deleted: "User deleted"
+      delele_fail: "Can't delete user. Please chose correct user"
+      require_login: "Please log in."
+      not_found_user: "Don't find user. Please login again or signup."
+      email_active: "Please check your email to activate your account."
     account_activations:
       m_success: "Welcome to the Sample App!"
       m_dan_active: "Invalid activation link"
@@ -53,6 +56,9 @@ en:
       email_not_found : "Email address not found"
       sented_email : "Email sent with password reset instructions"
       user_not_found: "Not found user!"
+    micropost:
+      post_delete: "Micropost deleted"
+      post_create: "Micropost created!"
   mailer:
     user:
       account_activation:
@@ -65,6 +71,7 @@ en:
       heading: "Hello world"
       content: "This is home page."
       signup: "Sign Up Now!"
+      heading_feed: "Micropost Feed"
     about:
       title: "About"
       heading: "This is help page"
@@ -94,6 +101,7 @@ en:
         maybe: "Mabe"
     show:
       title: "Show Users"
+      count_microposts: "Microposts (%{count}) "
     index:
       title: "Show All Users"
       heading: "All Users"
@@ -126,6 +134,13 @@ en:
     error_messages:
       m_count_er: "The form contains %{count}"
       err: "error."
+    user_info:
+      view_profile: "view my profile"
+      micropost: "micropost"
+    micropost_form:
+      btn_post: "Post"
+      compose: "Compose new micropost..."
+      picture_size: "Maximum file size is 5MB. Please choose a smaller file."
   sessions:
     new:
       login: "Log in"
@@ -157,3 +172,9 @@ en:
       heading: "Reset password"
       btn_confirm: "Confirmation"
       btn_update: "Update password"
+  microposts:
+    micropost:
+      confirm: "You sure?"
+      delete: "Delete"
+      post_time: "Posted %{time} ago."
+
