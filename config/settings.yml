@@ -6,3 +6,6 @@ user_model:
 micropost_model:
   content_maximun: 140
   picture_maximun: 5
+picture_uploader:
+  height: 400
+  width: 400

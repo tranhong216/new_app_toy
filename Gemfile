@@ -23,6 +23,9 @@ gem "will_paginate", "3.1.6"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "figaro"
 gem "awesome_print"
+gem "carrierwave"
+gem "mini_magick"
+gem "i18n-js"
 
 
 group :development, :test do
