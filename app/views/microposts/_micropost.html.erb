@@ -8,9 +8,9 @@
   </span>
   <span class="timestamp">
     <span class="timeago" title=<%= micropost.created_at %>></span>
-  <% if current_user.current_user?(micropost.user) %>
-    <%= link_to t(".delete"), micropost, method: :delete,
-      data: {confirm: t(".confirm")} %>
-  <% end %>
+    <% if current_user.current_user? micropost.user %>
+      <%= link_to t(".delete"), micropost, method: :delete,
+        data: {confirm: t(".confirm")} %>
+    <% end %>
   </span>
 </li>

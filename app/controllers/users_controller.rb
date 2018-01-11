@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @microposts = @user.microposts.order_time.paginate page: params[:page]
+    @microposts = @user.microposts.order_time.paginate page: param_page
   end
 
   def create
@@ -59,6 +59,10 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to root_url unless current_user.admin?
+  end
+
+  def param_page
+    params[:page]
   end
 
   def find_user
