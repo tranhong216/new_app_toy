@@ -1,17 +1,20 @@
-<%= form_for user do |f| %>
+<%= form_for object do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= f.fields_for :profile do |p| %>
 
-  <%= f.label :sex %>
-  <%= f.select :sex, sex_choice %>
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+
+      <%= p.label :sex %>
+      <%= p.select :sex, sex_choice %>
+
+      <%= p.label :date_of_birth %>
+      <%= p.date_select :date_of_birth, start_year: 1990 %>
+    <% end %>
 
   <%= f.label :email %>
   <%= f.email_field :email %>
-
-  <%= f.label :date_of_birth %>
-  <%= f.date_select :date_of_birth, start_year: 1990 %>
 
   <%= f.label :password %>
   <%= f.password_field :password %>

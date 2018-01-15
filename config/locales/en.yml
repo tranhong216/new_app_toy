@@ -115,6 +115,10 @@ en:
       btn_save: "Save changes"
     form:
       btn_confirm: "Confirmation"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
   layouts:
     header:
       home: "Home"
@@ -142,6 +146,9 @@ en:
       btn_post: "Post"
       compose: "Compose new micropost..."
       picture_size: "Maximum file size is 5MB. Please choose a smaller file."
+    stats:
+      following: "Following"
+      followed: "Follwered"
   sessions:
     new:
       login: "Log in"
