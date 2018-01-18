@@ -8,6 +8,8 @@ $black-light: #555;
 $gray-light: #bbb;
 $gray-hight-light: #e8e8e8;
 $red: #f00;
+$gray-medium: #808080;
+$blue: #00f;
 
 @mixin box-sizing {
   box-sizing: border-box;
@@ -264,4 +266,35 @@ input {
   input {
     border: 0;
   }
+}
+
+.stats {
+  margin-top: 0;
+  overflow: auto;
+  padding: 0;
+
+  a {
+    border-left: 1px solid $gray-lighter;
+    color: $gray-medium;
+    float: left;
+    padding: 0 10px;
+
+    &:first-child {
+      border: 0;
+      padding-left: 0;
+    }
+
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+.follow {
+  padding: 0;
 }

@@ -1,11 +1,19 @@
 class User < ApplicationRecord
-  enum sex: %i(male female maybe)
-  ATTRIBUTE_PARAMS = %i(name email password password_confirmation
-                        sex date_of_birth).freeze
+  ATTRIBUTE_PARAMS = [:email, :password, :password_confirmation,
+                      profile_attributes: Profile::ATTRIBUTE_PARAMS].freeze
   ATTRIBUTE_PARAMS_PASSWORD = %i(password password_confirmation).freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  has_one :profile, dependent: :destroy
   has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
+
+  accepts_nested_attributes_for :profile, update_only: true
 
   before_create :create_activation_digest
   before_save :email_downcase
@@ -13,15 +21,12 @@ class User < ApplicationRecord
   attr_reader :remember_token
   attr_accessor :activation_token, :reset_token
 
-  validates :name, presence: true,
-    length: {maximum: Settings.user_model.name_maximun}
   validates :email, presence: true,
     length: {maximum: Settings.user_model.email_maximun},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true,
     length: {minimum: Settings.user_model.password_minximun}, allow_nil: true
-  validates :sex, inclusion: {in: :sex}, allow_nil: true
-  validates :date_of_birth, presence: true
+
   has_secure_password
 
   class << self
@@ -79,6 +84,18 @@ class User < ApplicationRecord
 
   def feed
     microposts.order_time
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   private

@@ -10,10 +10,17 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_profile
   end
 
   def show
     @microposts = @user.microposts.order_time.paginate page: param_page
+    @relationship =
+      if current_user.following? @user
+        find_follwed_id
+      else
+        build_follow
+      end
   end
 
   def create
@@ -71,5 +78,13 @@ class UsersController < ApplicationController
     return if @user
     flash[:danger] = t "controllers.user.not_found_user"
     redirect_to login_url
+  end
+
+  def find_follwed_id
+    current_user.active_relationships.find_by followed_id: @user.id
+  end
+
+  def build_follow
+    current_user.active_relationships.build
   end
 end

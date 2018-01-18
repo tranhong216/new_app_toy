@@ -26,6 +26,7 @@ gem "awesome_print"
 gem "carrierwave"
 gem "mini_magick"
 gem "i18n-js"
+gem "faker", "1.7.3"
 
 
 group :development, :test do
