@@ -43,7 +43,7 @@ group :development, :test do
   gem "reek"
   gem "railroady"
   gem "autoprefixer-rails"
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
 end

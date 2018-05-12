@@ -129,6 +129,7 @@ en:
       account: "Account"
       logout: "Log out"
       users: "Users"
+      groups: "Groups"
     footer:
       about: "About"
       contact: "Contact"
@@ -185,4 +186,3 @@ en:
       confirm: "You sure?"
       delete: "Delete"
       post_time: "Posted %{time} ago."
-

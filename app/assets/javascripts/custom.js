@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.timeago').timeago();
 
   $('#micropost_picture').bind('change', function() {
