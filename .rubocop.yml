@@ -276,10 +276,6 @@ Style/HashSyntax:
   SupportedStyles:
     - ruby19
     - hash_rockets
-
-Style/IfUnlessModifier:
-  MaxLineLength: 80
-
 # Checks the indentation of the first key in a hash literal.
 Layout/IndentHash:
   # The value `special_inside_parentheses` means that hash literals with braces
@@ -502,9 +498,6 @@ Style/TrivialAccessors:
 #  SupportedStyles:
 #    - snake_case
 #    - camelCase
-
-Style/WhileUntilModifier:
-  MaxLineLength: 80
 
 Style/WordArray:
   MinSize: 0

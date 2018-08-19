@@ -1,0 +1,17 @@
+<% if current_user.admin %>
+  <%= link_to "Tạo Group", new_social_group_path, class: "btn btn-primary" %>
+<% end %>
+<ul class="list-group">
+  <% @social_groups.each do |social_group| %>
+    <li class="list-group-item">
+      <%= link_to social_group.name, social_group_path(social_group) %>
+      <% if social_group.member? current_user %>
+        <span class="joined pull-right">Đang tham gia</span>
+      <% else %>
+        <%= link_to "Tham  gia group", social_group_group_users_path(social_group),
+          method: :post, class: "btn btn-primary pull-right" %>
+      <% end %>
+      <div class="clearfix"></div>
+    </li>
+  <% end %>
+</ul>

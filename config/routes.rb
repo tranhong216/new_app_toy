@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get "/microposts", to: "static_pages#home"
+  get "/social_groups/:id/microposts", to: "social_groups#show"
   resources :users do
     member do
       get :following, :followers
@@ -15,6 +17,10 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: :edit
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :social_groups, only: [:index, :new, :create, :show] do
+    resources :group_users, only: [:create, :destroy]
+    resources :microposts, only: [:create, :destroy]
+  end
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:new, :edit, :create, :destroy]
 end

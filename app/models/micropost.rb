@@ -1,14 +1,16 @@
 class Micropost < ApplicationRecord
-  ATTRIBUTE_PARAMS = %i(content picture).freeze
+  ATTRIBUTE_PARAMS = %i(content picture user_id).freeze
 
   belongs_to :user
+  belongs_to :social_group, optional: true
 
-  validates :user_id, presence: true
   validates :content, presence: true, length: {maximum:
     Settings.micropost_model.content_maximun}
   validate  :picture_size
 
   scope :order_time, ->{order created_at: :desc}
+  scope :post_by_group_user, ->(user, group){where social_group: group, user: user}
+
   mount_uploader :picture, PictureUploader
 
   private

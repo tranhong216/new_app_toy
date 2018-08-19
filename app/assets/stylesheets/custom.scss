@@ -9,7 +9,9 @@ $gray-light: #bbb;
 $gray-hight-light: #e8e8e8;
 $red: #f00;
 $gray-medium: #808080;
-$blue: #00f;
+$blue: rgb(25, 180, 252);
+$gray-d: #ddd;
+$white: #fff;
 
 @mixin box-sizing {
   box-sizing: border-box;
@@ -297,4 +299,30 @@ input {
 
 .follow {
   padding: 0;
+}
+
+.group-member {
+  .heading {
+    border: 1px solid $gray-d;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 10px 15px;
+  }
+}
+
+.post-index {
+  border: 1px solid $gray-d;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.button-action {
+  margin-bottom: 5px;
+}
+
+.joined {
+  background-color: $blue;
+  border-radius: 3px;
+  color: $white;
+  padding: 5px;
 }

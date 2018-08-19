@@ -1,0 +1,40 @@
+<h2><%= @social_group.name.upcase %></h2>
+<div class="button-action text-center">
+  <% unless current_user.admin? %>
+    <%= link_to "Rời Group", social_group_group_user_path(@social_group,
+      @support_group.group_user), method: :delete, class: "btn btn-primary" %>
+  <% end %>
+</div>
+<% if @social_group.member?(current_user) %>
+  <div class="container">
+    <div class="col-md-9">
+      <div class="post-index">
+        <div class="input-post">
+          <%= render "social_groups/micropost_form",
+            micropost: @support_group.micropost || @support_group.new_group_micropost,
+            social_group: @social_group %>
+        </div>
+        <div>
+          <% if @support_group.group_microposts.any? %>
+            <ol class="microposts">
+              <%= render @support_group.group_microposts %>
+            </ol>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="group-member">
+        <div class="heading text-center">
+          Thành Viên <b>(<%= @social_group.members.count %>)</b></div>
+        <div class="conten">
+          <ul class="list-group">
+            <% @social_group.members.each do |member| %>
+              <li class="list-group-item"><%= member.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
