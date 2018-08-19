@@ -1,0 +1,7 @@
+<li>
+  <%= link_to user.profile.name, user %>
+  <% if current_user.admin? && !user.current_user?(current_user) %>
+    | <%= link_to t(".delete"), user, method: :delete,
+        data: {confirm:t(".m_confirm" )} %>
+  <% end %>
+</li>

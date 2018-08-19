@@ -1,0 +1,9 @@
+<% provide :title, t(".title") %>
+<% provide :button_text, t(".btn_submit") %>
+<h1><%= t ".heading" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "form",  object: @user %>
+  </div>
+</div>

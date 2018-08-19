@@ -1,0 +1,19 @@
+IrresponsibleModule:
+  enabled: false
+
+InstanceVariableAssumption:
+  enabled: false
+
+exclude_paths:
+  - 'vendor'
+  - 'db/migrate'
+
+"app/helpers":
+  FeatureEnvy:
+    enabled: false
+
+Attribute:
+  enabled: false
+
+TooManyMethods:
+  max_methods: 16

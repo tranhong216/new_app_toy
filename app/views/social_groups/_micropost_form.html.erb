@@ -1,0 +1,11 @@
+<%= form_for [social_group, micropost] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Nhap bai viet" %>
+  </div>
+  <span class="picture">
+    <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

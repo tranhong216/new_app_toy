@@ -1,0 +1,11 @@
+user_model:
+  name_maximun: 50
+  email_maximun: 255
+  password_minximun: 6
+  time_expired: 2
+micropost_model:
+  content_maximun: 140
+  picture_maximun: 5
+picture_uploader:
+  height: 400
+  width: 400

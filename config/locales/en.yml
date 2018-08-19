@@ -1,0 +1,188 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  alert_image_size: "should be less than 5MB"
+  base_title: "Ruby on Rails Tutorial Sample App"
+  model:
+    micropost:
+      picture_size: "should be less than 5MB"
+  controllers:
+    user:
+      updated: "Profile updates"
+      deleted: "User deleted"
+      delele_fail: "Can't delete user. Please chose correct user"
+      require_login: "Please log in."
+      not_found_user: "Don't find user. Please login again or signup."
+      email_active: "Please check your email to activate your account."
+    account_activations:
+      m_success: "Welcome to the Sample App!"
+      m_dan_active: "Invalid activation link"
+    session:
+      m_unsuccess: "Invalid email/password combination"
+      m_unactive: "Account not activated"
+      m_checklink: "Check your email for activation link."
+    password_reset:
+      email_expired: "Password reset has expired."
+      success: "Password has been reset."
+      do_not_blank: "can't be empty"
+      email_not_found : "Email address not found"
+      sented_email : "Email sent with password reset instructions"
+      user_not_found: "Not found user!"
+    micropost:
+      post_delete: "Micropost deleted"
+      post_create: "Micropost created!"
+  mailer:
+    user:
+      account_activation:
+        subject: "Activation Email Your Account In New App Toy"
+      password_reset:
+        subject: "Password Reset Email Your Account In New App Toy"
+  static_pages:
+    home:
+      title: "Home"
+      heading: "Hello world"
+      content: "This is home page."
+      signup: "Sign Up Now!"
+      heading_feed: "Micropost Feed"
+    about:
+      title: "About"
+      heading: "This is help page"
+      content: "<em><a href=%{home}> Ruby on Rails</a></em> is a
+      <a href=%{book}>book</a> and <a href=%{screencast_series}>
+      screencast series</a> o teach web development with <a href=%{RoR}>
+      Ruby on Rails</a>.This is the sample application for the tutorial."
+    help:
+      title: "Help"
+      heading: "this is about page"
+      content: "Click <a href=%{link}>here</a> to come Help Pages"
+    contact:
+      title: "Contact"
+      heading: "Contact"
+      content: "Contact the Ruby on Rails Tutorial about the sample app at the
+      <a href=%{link}> contact page</a>"
+  users:
+    new:
+      title: "New Member"
+      heading: "Sign Up Member"
+      content: "Content Update Later"
+      t_create: "Create my account"
+      btn_submit: "Submit"
+      sex:
+        male: "Male"
+        female: "Female"
+        maybe: "Mabe"
+    show:
+      title: "Show Users"
+      count_microposts: "Microposts (%{count}) "
+    index:
+      title: "Show All Users"
+      heading: "All Users"
+    user:
+      m_confirm: "You sure?"
+      delete: "Delete"
+    edit:
+      title: "Edit Page"
+      heading: "Edit User"
+      btn_save: "Save changes"
+    form:
+      btn_confirm: "Confirmation"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+  layouts:
+    header:
+      home: "Home"
+      help: "Help"
+      login: "Login"
+      profile: "Profile"
+      settings: "Settings"
+      account: "Account"
+      logout: "Log out"
+      users: "Users"
+      groups: "Groups"
+    footer:
+      about: "About"
+      contact: "Contact"
+      info: "The <a href=%{link1}>Ruby on Rails Tutorial</a> by
+      <a href=%{link2}> Michael Hartl</a> "
+      news: "News"
+  shared:
+    error_messages:
+      m_count_er: "The form contains %{count}"
+      err: "error."
+    user_info:
+      view_profile: "view my profile"
+      micropost: "micropost"
+    micropost_form:
+      btn_post: "Post"
+      compose: "Compose new micropost..."
+      picture_size: "Maximum file size is 5MB. Please choose a smaller file."
+    stats:
+      following: "Following"
+      followed: "Follwered"
+  sessions:
+    new:
+      login: "Log in"
+      m_newuser: "New user? %{link}"
+      signup: "Sign up now!"
+      remember_me: "Remember me on this computer"
+      m_forgot: "You forgot password ? %{link}"
+      forgot: "Get Your Password Now!"
+  user_mailer:
+    account_activation:
+      heading: "Last step to registion account"
+      greating: "Hi, "
+      welcome: "Welcome to the Sample App! Click on the link below to activate
+      your account:"
+      activate: "Activate Now"
+    password_reset:
+      heading: "Password reset"
+      message: "To reset your password click the link below:"
+      rs_password: "Reset password"
+      timelink: "This link will expire in two hours."
+      warning: "If you did not request your password to be reset, please ignore
+        this email and your password will stay as it is."
+  password_resets:
+    new:
+      title: "Reset Password"
+      btn_submit: "Submit"
+    edit:
+      title: "Reset password"
+      heading: "Reset password"
+      btn_confirm: "Confirmation"
+      btn_update: "Update password"
+  microposts:
+    micropost:
+      confirm: "You sure?"
+      delete: "Delete"
+      post_time: "Posted %{time} ago."
